@@ -1,0 +1,40 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Tauri build artifacts
+src-tauri/target/
+
+# Generated icons (produced by `tauri icon` at build time, only icon.png is source)
+src-tauri/icons/*.icns
+src-tauri/icons/*.ico
+src-tauri/icons/[0-9]*
+src-tauri/icons/Square*
+src-tauri/icons/StoreLogo.png
+src-tauri/icons/app-icon.png
+src-tauri/icons/android/
+src-tauri/icons/ios/
+
+# Task checksums
+.task/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

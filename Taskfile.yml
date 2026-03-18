@@ -1,0 +1,50 @@
+version: '3'
+
+tasks:
+  default:
+    desc: List all available tasks
+    silent: true
+    cmds:
+      - task --list
+
+  install:
+    desc: Install all dependencies
+    cmds:
+      - npm install
+
+  lint:
+    desc: Check Rust code
+    cmds:
+      - cargo fmt --manifest-path src-tauri/Cargo.toml -- --check
+      - cargo clippy --manifest-path src-tauri/Cargo.toml -- -D warnings
+
+  up:
+    aliases: [dev]
+    desc: Start the app in dev mode
+    cmds:
+      - npm run tauri dev
+
+  stop:
+    aliases: [down]
+    desc: Stop all dev processes
+    cmds:
+      - pkill -f "tauri dev" 2>/dev/null || true
+
+  clean:
+    desc: Remove all build artifacts
+    cmds:
+      - rm -rf src-tauri/target
+      - rm -rf node_modules
+      - rm -rf .task
+
+  icons:
+    desc: Regenerate all icon formats from src-tauri/icons/icon.png
+    cmds:
+      - npx tauri icon src-tauri/icons/icon.png
+
+  package:
+    desc: Build the full macOS app (.app + .dmg)
+    cmds:
+      - npm install
+      - task: icons
+      - npm run tauri build
