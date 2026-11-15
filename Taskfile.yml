@@ -16,7 +16,12 @@ tasks:
     desc: Check Rust code
     cmds:
       - cargo fmt --manifest-path src-tauri/Cargo.toml -- --check
-      - cargo clippy --manifest-path src-tauri/Cargo.toml -- -D warnings
+      - cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets -- -D warnings
+
+  test:
+    desc: Test navigation and login window rules
+    cmds:
+      - cargo test --manifest-path src-tauri/Cargo.toml --locked
 
   up:
     aliases: [dev]

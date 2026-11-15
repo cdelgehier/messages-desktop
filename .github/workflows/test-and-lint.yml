@@ -34,3 +34,6 @@ jobs:
 
       - name: Run lint
         run: task lint
+
+      - name: Run tests
+        run: task test
